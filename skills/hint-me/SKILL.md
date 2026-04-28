@@ -1,6 +1,11 @@
 ---
 name: hint-me
 description: Claude特有の機能を習熟するために、活用ヒントを提案する
+license: MIT
+metadata:
+  author: toieelab Kameda
+  version: 1.0.0
+  tags: [education, ai, coaching, ai-fluency, learning-by-doing]
 ---
 
 # 概要
