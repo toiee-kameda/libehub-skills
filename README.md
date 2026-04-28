@@ -38,6 +38,33 @@ Anthropic の研究に基づく **4D AI Fluency Framework**（Delegation / Disce
 
 ---
 
+### `/ai-fluency-check` ダウンロード版 — AI フルーエンシー ルーブリック PDF
+
+**4D AI Fluency Framework** に基づくルーブリック評価表の PDF 版です。印刷して手元に置いたり、授業・ワークショップで配布したりするのに使えます。
+
+- スキルと同じ14項目のルーブリックを収録
+- ブラウザで開いてそのまま印刷可能な HTML 版も同梱
+- Claude を使わずオフラインで自己評価・他者評価に活用できる
+
+[ダウンロード (ai-fluency-rubric.pdf)](https://github.com/toiee-kameda/libehub-skills/raw/main/resources/ai-fluency-index/ai-fluency-rubric.pdf)
+
+---
+
+### `/craft-whiteboard-excalidraw` — Craft ホワイトボード × Excalidraw 互換スキル
+
+Claude の **Craft コネクタ**を使って Craft のホワイトボードに図を描くときに必要な互換ガイドスキルです。
+
+- Craft 内蔵の Excalidraw はバージョンが古く、新記法（`label` 内包・`cameraUpdate`）を使うとテキストが消えるバグを回避
+- シェイプとテキストを独立した要素として分離する正しい互換フォーマットを提供
+- 矩形・矢印・テキストの正しい記法サンプルを収録
+- `whiteboardElements_add` を呼び出す際に Claude が自動参照
+
+**使い方:** Craft ホワイトボードに図を描くよう依頼すると自動起動。または `/craft-whiteboard-excalidraw` と入力
+
+[ダウンロード (craft-whiteboard-excalidraw.skill)](https://github.com/toiee-kameda/libehub-skills/raw/main/releases/craft-whiteboard-excalidraw.skill)
+
+---
+
 ### `/jp-check` — 日本語文章校正
 
 日本語文章に対して**包括的な校正とフィードバック**を提供するスキルです。
