@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>AI Fluency 自己評価ルーブリック</title>
+<style>
+  @page {
+    size: A4 landscape;
+    margin: 10mm 8mm;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+    font-size: 7.5pt;
+    line-height: 1.35;
+    color: #111;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    font-size: 11pt;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 0 2mm 0;
+    padding: 2mm 0;
+    border-bottom: 2px solid #333;
+    letter-spacing: 0.05em;
+  }
+
+  .subtitle {
+    font-size: 7pt;
+    text-align: center;
+    color: #555;
+    margin: 0 0 3mm 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  th, td {
+    border: 0.5px solid #888;
+    padding: 1.5mm 2mm;
+    vertical-align: top;
+  }
+
+  /* Column widths */
+  col.col-main   { width: 7%; }
+  col.col-sub    { width: 9%; }
+  col.col-score  { width: 4%; }
+  col.col-level  { width: 20%; }
+
+  /* Header row */
+  thead th {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    font-size: 8pt;
+    font-weight: bold;
+    vertical-align: middle;
+  }
+
+  .header-criteria {
+    text-align: center;
+  }
+
+  .level-header {
+    text-align: center;
+    font-size: 7.5pt;
+  }
+
+  .level-num {
+    font-size: 10pt;
+    font-weight: bold;
+    display: block;
+  }
+
+  .level-label {
+    font-size: 6.5pt;
+    display: block;
+    font-weight: normal;
+  }
+
+  /* Category colors */
+  .cat-dg { background: #e8f4e8; }
+  .cat-ds { background: #e8eef8; }
+  .cat-dc { background: #fef6e4; }
+  .cat-dl { background: #fce8e8; }
+
+  .cat-label-dg { background: #2d7a2d; color: white; }
+  .cat-label-ds { background: #1a4f8a; color: white; }
+  .cat-label-dc { background: #8a6200; color: white; }
+  .cat-label-dl { background: #8a1a1a; color: white; }
+
+  td.main-category {
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 8pt;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    letter-spacing: 0.1em;
+    padding: 2mm 1mm;
+  }
+
+  .d-label {
+    font-size: 9pt;
+    font-weight: bold;
+    display: block;
+  }
+
+  .d-sublabel {
+    font-size: 6.5pt;
+    font-weight: normal;
+    display: block;
+    margin-top: 1mm;
+  }
+
+  .d-count {
+    font-size: 6pt;
+    display: block;
+    margin-top: 0.5mm;
+  }
+
+  td.sub-item {
+    vertical-align: middle;
+    font-size: 7.5pt;
+  }
+
+  .item-id {
+    font-weight: bold;
+    font-size: 8pt;
+    color: #333;
+  }
+
+  .item-name {
+    font-weight: bold;
+    display: block;
+    margin: 0.5mm 0;
+  }
+
+  .item-desc {
+    font-size: 6.5pt;
+    color: #555;
+    display: block;
+  }
+
+  td.score-cell {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 8pt;
+    font-weight: bold;
+  }
+
+  td.level-cell {
+    font-size: 7pt;
+    line-height: 1.3;
+  }
+
+  .score-box {
+    display: inline-block;
+    width: 6mm;
+    height: 6mm;
+    border: 1px solid #666;
+    margin-top: 1mm;
+  }
+
+  /* Highlight special items */
+  .highlight-note {
+    font-size: 6pt;
+    color: #b05000;
+    font-style: italic;
+    display: block;
+    margin-top: 0.5mm;
+  }
+
+  .footer {
+    margin-top: 3mm;
+    font-size: 6pt;
+    color: #666;
+    text-align: right;
+    border-top: 0.5px solid #aaa;
+    padding-top: 1mm;
+  }
+
+  .score-summary {
+    margin-top: 3mm;
+    display: flex;
+    gap: 5mm;
+    font-size: 7pt;
+  }
+
+  .score-box-row {
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+    margin-bottom: 1mm;
+  }
+
+  .total-table {
+    border-collapse: collapse;
+    font-size: 7pt;
+  }
+
+  .total-table th, .total-table td {
+    border: 0.5px solid #888;
+    padding: 1mm 2mm;
+  }
+
+  .total-table th {
+    background: #eee;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<h1>AI Fluency 自己評価ルーブリック　― 4D Framework ―</h1>
+<p class="subtitle">Anthropic AI Fluency Index (2026) に基づく 18 項目・54 点満点の自己評価シート　　氏名：＿＿＿＿＿＿＿＿＿＿＿＿　　日付：＿＿＿＿年＿＿月＿＿日</p>
+
+<table>
+  <colgroup>
+    <col class="col-main">
+    <col class="col-sub">
+    <col class="col-score">
+    <col class="col-level">
+    <col class="col-level">
+    <col class="col-level">
+    <col class="col-level">
+  </colgroup>
+  <thead>
+    <tr>
+      <th rowspan="2">大項目</th>
+      <th rowspan="2">小項目</th>
+      <th rowspan="2">得点</th>
+      <th colspan="4" class="header-criteria">評価基準</th>
+    </tr>
+    <tr>
+      <th class="level-header">
+        <span class="level-num">0</span>
+        <span class="level-label">ほとんどできていない</span>
+      </th>
+      <th class="level-header">
+        <span class="level-num">1</span>
+        <span class="level-label">時々できている</span>
+      </th>
+      <th class="level-header">
+        <span class="level-num">2</span>
+        <span class="level-label">一貫してできている</span>
+      </th>
+      <th class="level-header">
+        <span class="level-num">3</span>
+        <span class="level-label">高度にでき他者にも教えられる</span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <!-- ========== DELEGATION ========== -->
+    <tr>
+      <td class="main-category cat-label-dg" rowspan="4">
+        <span class="d-label">Delegation</span>
+        <span class="d-sublabel">委任</span>
+        <span class="d-count">4問／12点</span>
+      </td>
+      <td class="sub-item cat-dg">
+        <span class="item-id">DG1</span>
+        <span class="item-name">タスクの切り分け判断</span>
+        <span class="item-desc">「人がやる部分」「AIに任せる部分」を意識的に切り分けているか</span>
+      </td>
+      <td class="score-cell cat-dg"><span class="score-box"></span></td>
+      <td class="level-cell cat-dg">タスクを丸投げするか全部自力でやるかの二択になっており、切り分けの発想がない</td>
+      <td class="level-cell cat-dg">大きなタスクはときどき分解するが、「AIに任せる部分／自分でやる部分」の判断基準が曖昧</td>
+      <td class="level-cell cat-dg">タスクを「構造化・下書き・検証・最終判断」などに分解し、AIに任せる部分と人がやる部分を意図的に分けている</td>
+      <td class="level-cell cat-dg">タスク切り分けのパターンを自分のワークフローとして定型化し、他者にも再現可能な形で共有できる</td>
+    </tr>
+    <tr>
+      <td class="sub-item cat-dg">
+        <span class="item-id">DG2</span>
+        <span class="item-name">AIの能力と限界の理解</span>
+        <span class="item-desc">AIが得意なこと／苦手なことを踏まえて依頼内容を調整しているか</span>
+      </td>
+      <td class="score-cell cat-dg"><span class="score-box"></span></td>
+      <td class="level-cell cat-dg">AIが何を得意で何を苦手とするかをあまり意識せず、同じやり方で何でも依頼する</td>
+      <td class="level-cell cat-dg">うまくいかなかった経験から「このタイプの依頼は苦手そう」と気づく程度</td>
+      <td class="level-cell cat-dg">AIの得意領域（構造化・下書き・複数案出し）と苦手領域（最新事実・独自判断・長期記憶）を踏まえて依頼の粒度を調整している</td>
+      <td class="level-cell cat-dg">モデルごとの特性差やバージョン更新の影響を理解し、タスクに応じてモデル・ツールを使い分けている</td>
+    </tr>
+    <tr>
+      <td class="sub-item cat-dg">
+        <span class="item-id">DG3</span>
+        <span class="item-name">相互作用モードの意図的選択</span>
+        <span class="item-desc">「手早く自動化」「思考の壁打ち」「長期の代行」を使い分けているか</span>
+      </td>
+      <td class="score-cell cat-dg"><span class="score-box"></span></td>
+      <td class="level-cell cat-dg">ほぼ「質問して答えをもらう」一択で、AIとの関わり方を意識していない</td>
+      <td class="level-cell cat-dg">たまに「ブレスト役」「レビュー役」など役割を切り替えるが、その場の思いつきが多い</td>
+      <td class="level-cell cat-dg">「自動化（任せて実行）」「思考パートナー（一緒に考える）」「エージェント化（継続的に代行）」を意識的に使い分けている</td>
+      <td class="level-cell cat-dg">タスク設計の段階で適切なモードを選び、メンバーやクラスにもモード選択の判断軸を伝えられる</td>
+    </tr>
+    <tr>
+      <td class="sub-item cat-dg">
+        <span class="item-id">DG4</span>
+        <span class="item-name">実行前のアプローチ相談</span>
+        <span class="item-desc">大きなタスクでは、いきなり実行させず先に「どう進めるか」を相談するか</span>
+      </td>
+      <td class="score-cell cat-dg"><span class="score-box"></span></td>
+      <td class="level-cell cat-dg">大きなタスクでも、いきなり「やって」と依頼して最後まで一気に走らせる</td>
+      <td class="level-cell cat-dg">途中で手戻りが起きたときに、方針を相談し直すことがある</td>
+      <td class="level-cell cat-dg">重要なタスクでは「どう進めるか」をまず相談し、合意してから実行に移す習慣がある</td>
+      <td class="level-cell cat-dg">アプローチ相談→計画合意→実行→検証のワークフローを定型化し、他者にも展開している</td>
+    </tr>
+
+    <!-- ========== DESCRIPTION ========== -->
+    <tr>
+      <td class="main-category cat-label-ds" rowspan="5">
+        <span class="d-label">Description</span>
+        <span class="d-sublabel">記述</span>
+        <span class="d-count">5問／15点</span>
+      </td>
+      <td class="sub-item cat-ds">
+        <span class="item-id">DS1</span>
+        <span class="item-name">目的の明確化</span>
+        <span class="item-desc">依頼前に「何のために・何を達成したいか」を伝えているか</span>
+      </td>
+      <td class="score-cell cat-ds"><span class="score-box"></span></td>
+      <td class="level-cell cat-ds">「〜について教えて」程度で、何のために・どう使うかを伝えない依頼が多い</td>
+      <td class="level-cell cat-ds">重要な依頼のときだけ目的を書くが、抜け漏れが多い</td>
+      <td class="level-cell cat-ds">依頼のたびに「最終目的・成果物の用途・成功条件」を具体的に伝えている</td>
+      <td class="level-cell cat-ds">目的の言語化をテンプレ化し、複雑なタスクでも目的階層（上位目的／具体目的）を整理して渡せる</td>
+    </tr>
+    <tr>
+      <td class="sub-item cat-ds">
+        <span class="item-id">DS2</span>
+        <span class="item-name">形式・構造の指定</span>
+        <span class="item-desc">表・箇条書き・コードなど、望む出力形式を具体的に指定しているか</span>
+      </td>
+      <td class="score-cell cat-ds"><span class="score-box"></span></td>
+      <td class="level-cell cat-ds">出力形式を指定せず、毎回AI任せで返ってきた形をそのまま受け取る</td>
+      <td class="level-cell cat-ds">ときどき「箇条書きで」「表で」など簡単な形式を指定する</td>
+      <td class="level-cell cat-ds">目的に応じて「表・コード・手順書・JSON・マークダウン」など最適な形式を積極的に指定している</td>
+      <td class="level-cell cat-ds">再利用可能なフォーマット（テンプレ・スニペット）を設計し、AIへの指示として継続活用している</td>
+    </tr>
+    <tr>
+      <td class="sub-item cat-ds">
+        <span class="item-id">DS3</span>
+        <span class="item-name">良い例の提示</span>
+        <span class="item-desc">目指すトーン・品質の参考例を渡してガイドしているか</span>
+      </td>
+      <td class="score-cell cat-ds"><span class="score-box"></span></td>
+      <td class="level-cell cat-ds">例文や参考資料をほとんど渡さず、抽象的な指示だけで依頼する</td>
+      <td class="level-cell cat-ds">うまくいかないときだけ参考例を追加する</td>
+      <td class="level-cell cat-ds">目指すトーン・構成・品質を示す具体例を最初から渡す習慣がある</td>
+      <td class="level-cell cat-ds">自作の良いアウトプットをライブラリ化し、タスクに応じて例を使い分けている</td>
+    </tr>
+    <tr>
+      <td class="sub-item cat-ds">
+        <span class="item-id">DS4</span>
+        <span class="item-name">対象読者・文脈の共有</span>
+        <span class="item-desc">読み手・場面・前提制約をセットで伝えているか</span>
+      </td>
+      <td class="score-cell cat-ds"><span class="score-box"></span></td>
+      <td class="level-cell cat-ds">読み手のレベル・場面・制約などの前提をほぼ伝えない</td>
+      <td class="level-cell cat-ds">思いついたときだけ背景情報を書くが、抜け漏れが多い</td>
+      <td class="level-cell cat-ds">読者（誰が読むか）・場面（どこで使うか）・制約（時間・予算・組織ルール）を一通りセットで共有している</td>
+      <td class="level-cell cat-ds">タスクに応じた文脈共有のパターンを持ち、他者にもその設計法を伝えられる</td>
+    </tr>
+    <tr>
+      <td class="sub-item cat-ds">
+        <span class="item-id">DS5</span>
+        <span class="item-name">協働スタイルの設定</span>
+        <span class="item-desc">「間違っていたら指摘して」「推論を先に説明して」など対話ルールを先に設定するか</span>
+        <span class="highlight-note">★ 最大の伸びしろ：実行率30%だが対話全体の質を変える</span>
+      </td>
+      <td class="score-cell cat-ds"><span class="score-box"></span></td>
+      <td class="level-cell cat-ds">AIとの対話ルールを指定せず、返ってきたものをそのまま受け取る</td>
+      <td class="level-cell cat-ds">ときどき「丁寧に」「簡潔に」など話し方を指定する</td>
+      <td class="level-cell cat-ds">「間違っていそうなら指摘して」「推論を先に説明して」「不確かな部分を明示して」など、対話の振る舞いルールを先に設定している</td>
+      <td class="level-cell cat-ds">タスク種別ごとの協働スタイル（批評モード・ソクラテスモード・ブレストモードなど）をパターン化し、他者にも共有している</td>
+    </tr>
+
+    <!-- ========== DISCERNMENT ========== -->
+    <tr>
+      <td class="main-category cat-label-dc" rowspan="5">
+        <span class="d-label">Discernment</span>
+        <span class="d-sublabel">識別</span>
+        <span class="d-count">5問／15点</span>
+      </td>
+      <td class="sub-item cat-dc">
+        <span class="item-id">DC1</span>
+        <span class="item-name">反復と精緻化</span>
+        <span class="item-desc">初回回答を起点として、追質問・修正指示で磨き込んでいるか</span>
+        <span class="highlight-note">★ 最多観察（85.7%）、全指標と最強相関の中核行動</span>
+      </td>
+      <td class="score-cell cat-dc"><span class="score-box"></span></td>
+      <td class="level-cell cat-dc">最初の回答をほぼそのまま使うことが多い</td>
+      <td class="level-cell cat-dc">気になったときだけ追加質問や修正指示を出す</td>
+      <td class="level-cell cat-dc">「たたき台→追質問→修正→最終版」のように、ほぼ毎回2〜3往復以上で磨き込んでいる</td>
+      <td class="level-cell cat-dc">反復プロセス自体を設計し、「生成→比較→統合→検証」のようなワークフローを定型化している</td>
+    </tr>
+    <tr>
+      <td class="sub-item cat-dc">
+        <span class="item-id">DC2</span>
+        <span class="item-name">推論の問い直し</span>
+        <span class="item-desc">「なぜそう言える？」「根拠は？」を意図的に問うているか</span>
+      </td>
+      <td class="score-cell cat-dc"><span class="score-box"></span></td>
+      <td class="level-cell cat-dc">AIの結論の「なぜ？」をほとんど問わずに結果を受け取る</td>
+      <td class="level-cell cat-dc">疑問を感じたときだけ理由や根拠を尋ねる</td>
+      <td class="level-cell cat-dc">意図的に「なぜその結論？」「前提は何？」「他の選択肢は？」と問い、推論を言語化させている</td>
+      <td class="level-cell cat-dc">AIの推論プロセスを自分で辿れるレベルで理解し、推論の見える化を指導・設計できる</td>
+    </tr>
+    <tr>
+      <td class="sub-item cat-dc">
+        <span class="item-id">DC3</span>
+        <span class="item-name">文脈不足の特定</span>
+        <span class="item-desc">AIの回答で「抜けている前提・欠けている視点」を能動的に指摘するか</span>
+      </td>
+      <td class="score-cell cat-dc"><span class="score-box"></span></td>
+      <td class="level-cell cat-dc">AIの回答に欠けている前提や視点に気づかず、そのまま使うことが多い</td>
+      <td class="level-cell cat-dc">明らかな抜けだけ指摘する</td>
+      <td class="level-cell cat-dc">「地域差」「対象者のスキル」「制度・文化・業界特性」など、抜けている前提を体系的に確認・補完している</td>
+      <td class="level-cell cat-dc">前提チェックの観点リストを持ち、チームや学習者にも「この前提は？」と問う文化を作っている</td>
+    </tr>
+    <tr>
+      <td class="sub-item cat-dc">
+        <span class="item-id">DC4</span>
+        <span class="item-name">重要事実の検証</span>
+        <span class="item-desc">重要情報を外部ソースや別経路でクロスチェックするか</span>
+      </td>
+      <td class="score-cell cat-dc"><span class="score-box"></span></td>
+      <td class="level-cell cat-dc">AIの出力をそのまま事実として受け取り、検証しないことが多い</td>
+      <td class="level-cell cat-dc">重要そうな数字や固有名詞だけ気が向いたときに調べる</td>
+      <td class="level-cell cat-dc">重要情報は、AIに再確認させたり外部ソース（一次資料・公式ドキュメント）でクロスチェックする習慣がある</td>
+      <td class="level-cell cat-dc">検証の手順をチェックリスト化し、チームや学習者にも「検証のやり方」を指導できる</td>
+    </tr>
+    <tr>
+      <td class="sub-item cat-dc">
+        <span class="item-id">DC5</span>
+        <span class="item-name">Polishへの警戒</span>
+        <span class="item-desc">見た目が整ったアウトプット（コード・文書・アプリ）ほど疑って確認するか</span>
+        <span class="highlight-note">★「Polishの罠」：見た目の完成度と内容の正しさは別</span>
+      </td>
+      <td class="score-cell cat-dc"><span class="score-box"></span></td>
+      <td class="level-cell cat-dc">見た目が整った出力（動くコード・整ったレポート・完成っぽいアプリ）を「できている」と判断しがち</td>
+      <td class="level-cell cat-dc">大きな違和感があるときだけ再確認する</td>
+      <td class="level-cell cat-dc">完成度の高いアウトプットほど「本当に正しいか？仕組みはどうなっているか？」と意図的に立ち止まって確認している</td>
+      <td class="level-cell cat-dc">「Polishの罠（見た目の完成度と内容の正しさは別）」を他者にも教え、検証文化を組織・クラスに根づかせている</td>
+    </tr>
+
+    <!-- ========== DILIGENCE ========== -->
+    <tr>
+      <td class="main-category cat-label-dl" rowspan="4">
+        <span class="d-label">Diligence</span>
+        <span class="d-sublabel">誠実</span>
+        <span class="d-count">4問／12点</span>
+      </td>
+      <td class="sub-item cat-dl">
+        <span class="item-id">DL1</span>
+        <span class="item-name">透明性（利用開示）</span>
+        <span class="item-desc">AIがどこで関与したかを成果物や関係者に明示しているか</span>
+      </td>
+      <td class="score-cell cat-dl"><span class="score-box"></span></td>
+      <td class="level-cell cat-dl">AIを使ったかどうかを共有しない、または聞かれても曖昧にする</td>
+      <td class="level-cell cat-dl">聞かれたときだけAI利用を説明する</td>
+      <td class="level-cell cat-dl">成果物（記事・コード・教材・レポート）に「どの部分でAIを使ったか」を自発的に明記している</td>
+      <td class="level-cell cat-dl">所属組織・クラス・コミュニティでAI利用開示の基準を整備・運用している</td>
+    </tr>
+    <tr>
+      <td class="sub-item cat-dl">
+        <span class="item-id">DL2</span>
+        <span class="item-name">検証責任</span>
+        <span class="item-desc">公開・提出する前に、人間として最終確認・責任を引き受けているか</span>
+      </td>
+      <td class="score-cell cat-dl"><span class="score-box"></span></td>
+      <td class="level-cell cat-dl">AIの出力をそのまま公開・提出することがあり、最終確認の基準が曖昧</td>
+      <td class="level-cell cat-dl">重要そうな場面では自分で確認するが、基準は場当たり的</td>
+      <td class="level-cell cat-dl">公開・提出前には必ず人間（自分または他者）が最終確認する基準とプロセスを決めて守っている</td>
+      <td class="level-cell cat-dl">「AIは補助・人間が責任」という原則を組織やチームのプロセスに組み込み、運用している</td>
+    </tr>
+    <tr>
+      <td class="sub-item cat-dl">
+        <span class="item-id">DL3</span>
+        <span class="item-name">倫理・ポリシー遵守</span>
+        <span class="item-desc">著作権・プライバシー・組織ポリシーを踏まえてAIを使うか</span>
+      </td>
+      <td class="score-cell cat-dl"><span class="score-box"></span></td>
+      <td class="level-cell cat-dl">著作権・プライバシー・組織ポリシーをあまり意識せずにAIを使う</td>
+      <td class="level-cell cat-dl">気になったときだけ規約やルールを確認する</td>
+      <td class="level-cell cat-dl">著作権・機密情報・個人情報・組織ポリシーなどリスク領域では特に注意して使い方をコントロールしている</td>
+      <td class="level-cell cat-dl">自組織・授業向けのAI利用ガイドラインを作成・アップデートし、周囲に浸透させている</td>
+    </tr>
+    <tr>
+      <td class="sub-item cat-dl">
+        <span class="item-id">DL4</span>
+        <span class="item-name">継続的学習（Learning Curve）</span>
+        <span class="item-desc">自分のAI使用を定期的に振り返り、使い方・モデル選択を改善しているか</span>
+        <span class="highlight-note">★ 6ヶ月以上継続ユーザーは成功率が+5pp高い（Economic Index）</span>
+      </td>
+      <td class="score-cell cat-dl"><span class="score-box"></span></td>
+      <td class="level-cell cat-dl">自分のAI活用を振り返る習慣はほぼなく、同じ失敗を繰り返しがち</td>
+      <td class="level-cell cat-dl">うまくいかなかったときだけ使い方を見直す</td>
+      <td class="level-cell cat-dl">定期的に「うまくいったプロンプト・失敗パターン・モデル選択の判断」を振り返り、使い方を改善している</td>
+      <td class="level-cell cat-dl">振り返りと共有の場（社内勉強会・コース・ブログ）を設計・運営し、他者の学習曲線も後押ししている</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<div style="display:flex; justify-content:space-between; align-items:flex-end; margin-top:3mm;">
+  <table class="total-table">
+    <thead>
+      <tr>
+        <th>次元</th>
+        <th>問数</th>
+        <th>満点</th>
+        <th>得点</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="background:#e8f4e8;">Delegation（委任）</td>
+        <td style="text-align:center;">4</td>
+        <td style="text-align:center;">12</td>
+        <td style="width:15mm;"></td>
+      </tr>
+      <tr>
+        <td style="background:#e8eef8;">Description（記述）</td>
+        <td style="text-align:center;">5</td>
+        <td style="text-align:center;">15</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="background:#fef6e4;">Discernment（識別）</td>
+        <td style="text-align:center;">5</td>
+        <td style="text-align:center;">15</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="background:#fce8e8;">Diligence（誠実）</td>
+        <td style="text-align:center;">4</td>
+        <td style="text-align:center;">12</td>
+        <td></td>
+      </tr>
+      <tr style="font-weight:bold;">
+        <td>合計</td>
+        <td style="text-align:center;">18</td>
+        <td style="text-align:center;">54</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="total-table">
+    <thead>
+      <tr>
+        <th>合計スコア</th>
+        <th>評価レベル</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>0〜18点</td><td>基礎固め段階</td></tr>
+      <tr><td>19〜35点</td><td>実践育成段階</td></tr>
+      <tr><td>36〜44点</td><td>熟達段階</td></tr>
+      <tr><td>45〜54点</td><td>指導者段階</td></tr>
+    </tbody>
+  </table>
+
+  <div style="font-size:6.5pt; color:#555; max-width:80mm; line-height:1.4;">
+    <strong>参考文献</strong><br>
+    Anthropic AI Fluency Index (2026)<br>
+    https://www.anthropic.com/research/AI-fluency-index<br>
+    Anthropic Economic Index - Learning Curves (March 2026)<br>
+    https://www.anthropic.com/research/economic-index-march-2026-report
+  </div>
+</div>
+
+<div class="footer">
+  AI Fluency Self-Check Skill v1.0.1 &nbsp;|&nbsp; Anthropic 4D AI Fluency Framework &nbsp;|&nbsp; © toieelab Kameda &nbsp;|&nbsp; MIT License
+</div>
+
+</body>
+</html>
