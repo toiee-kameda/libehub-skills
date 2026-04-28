@@ -6,6 +6,11 @@ description: |
   Excalidraw の JSON を Craft に反映させる場面では常にこのスキルを参照すること。
   label 内包記法や cameraUpdate を使うと Craft でテキストが消えるため、
   このスキルの互換フォーマットに従う必要がある。
+license: MIT
+metadata:
+  author: toieelab Kameda
+  version: 1.0.0
+  tags: [education, ai, coaching, ai-fluency, learning-by-doing]
 ---
 
 # Craft ホワイトボード × Excalidraw 互換ガイド
