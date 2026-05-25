@@ -19,6 +19,9 @@ for skill_path in "$SKILLS_DIR"/*/; do
 
   echo "  Packaging: $skill_name -> releases/${skill_name}.skill"
 
+  # 既存の .skill を削除してから作り直す（zip の追記で古いファイルが残るのを防ぐ）
+  rm -f "$output"
+
   # skill フォルダの中身を zip に固める（フォルダ名なしでルートに展開されるように）
   (cd "$skill_path" && zip -r --quiet "$output" .)
 done
