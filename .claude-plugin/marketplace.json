@@ -1,0 +1,34 @@
+{
+  "name": "libehub-skills",
+  "owner": {
+    "name": "T. Kameda",
+    "email": "kame@toiee.jp"
+  },
+  "metadata": {
+    "description": "リベハブ（Liberal Education Hub）が公開する Claude スキル集のマーケットプレイス",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "ai-fluency",
+      "description": "AIフルーエンシー（Anthropic 4D Framework）を高めるためのスキル集。自己評価チェック・会話コーチング・活用ヒント提案を提供",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/ai-fluency-check",
+        "./skills/coach-me",
+        "./skills/hint-me"
+      ]
+    },
+    {
+      "name": "work-tools",
+      "description": "日々の仕事の文章作成を支援するスキル集。日本語文章の校正とコンテキストドキュメント作成インタビューを提供",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/jp-check",
+        "./skills/context-builder"
+      ]
+    }
+  ]
+}
