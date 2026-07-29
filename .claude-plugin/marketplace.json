@@ -33,7 +33,8 @@
       "strict": false,
       "skills": [
         "./skills/jp-check",
-        "./skills/context-builder"
+        "./skills/context-builder",
+        "./skills/copywriting-grill"
       ]
     }
   ]
