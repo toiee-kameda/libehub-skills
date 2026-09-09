@@ -15,12 +15,12 @@
       "author": {
         "name": "LibeHub"
       },
-      "source": "./",
+      "source": "./skills",
       "strict": false,
       "skills": [
-        "./skills/ai-fluency-check",
-        "./skills/coach-me",
-        "./skills/hint-me"
+        "./ai-fluency-check",
+        "./coach-me",
+        "./hint-me"
       ]
     },
     {
@@ -29,14 +29,14 @@
       "author": {
         "name": "LibeHub"
       },
-      "source": "./",
+      "source": "./skills",
       "strict": false,
       "skills": [
-        "./skills/jp-check",
-        "./skills/context-builder",
-        "./skills/copywriting-grill",
-        "./skills/kabeuchi",
-        "./skills/eli5"
+        "./jp-check",
+        "./context-builder",
+        "./copywriting-grill",
+        "./kabeuchi",
+        "./eli5"
       ]
     },
     {
@@ -45,11 +45,11 @@
       "author": {
         "name": "LibeHub"
       },
-      "source": "./",
+      "source": "./skills",
       "strict": false,
       "skills": [
-        "./skills/substack-post",
-        "./skills/substack-quick-fix"
+        "./substack-post",
+        "./substack-quick-fix"
       ]
     }
   ]
