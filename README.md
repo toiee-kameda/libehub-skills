@@ -43,9 +43,10 @@ claude.ai や Claude Desktop App で作業をします。
 | プラグイン | 収録スキル |
 | --- | --- |
 | `ai-fluency` | `ai-fluency-check` / `coach-me` / `hint-me` |
-| `work-tools` | `jp-check` / `context-builder` |
+| `work-tools` | `jp-check` / `context-builder` / `copywriting-grill` / `kabeuchi` / `eli5` |
+| `substack-tools` | `substack-post` / `substack-quick-fix` |
 
-上記2プラグインに含まれない `craft-whiteboard-excalidraw` `substack-post` は、下記の「個別スキルとしてインストール」の方法を利用してください。
+上記3プラグインに含まれない `craft-whiteboard-excalidraw` は、下記の「個別スキルとしてインストール」の方法を利用してください。
 
 ---
 
@@ -127,6 +128,22 @@ Claude の **Craft コネクタ**を使って Craft のホワイトボードに�
 
 ---
 
+### `/substack-quick-fix` — Substack 誤字修正の高速適用
+
+Substackの編集画面（Tiptap/ProseMirror）で、指摘済みの誤字脱字などの修正リストを**スクリーンショット操作なしで高速に反映**するスキルです。
+
+- `javascript_tool` で編集領域のDOMを直接操作し、ブラウザ標準のテキスト入力コマンドで修正
+- ProseMirrorの内部状態と同期し、Substackの自動保存にも正しく反映
+- `jp-check` の校正結果をそのまま下書きに適用する用途などで利用
+
+**使い方:** 「校正結果をSubstackの下書きに反映して」などと依頼すると起動
+
+**前提条件:** Claude in Chrome 拡張で、対象のSubstack編集画面タブを操作できる状態にしておく
+
+[ダウンロード (substack-quick-fix.skill)](https://github.com/toiee-kameda/libehub-skills/raw/main/releases/substack-quick-fix.skill)
+
+---
+
 ### `/hint-me` — Claude 活用ヒント提案
 
 現在の会話状況に合わせて、**Claude の機能やプロンプト技法のヒント**を提案するスキルです。
@@ -170,6 +187,35 @@ Claude の **Craft コネクタ**を使って Craft のホワイトボードに�
 **使い方:** `/context-builder`（または `/context-builder me` など）と入力して起動
 
 [ダウンロード (context-builder.skill)](https://github.com/toiee-kameda/libehub-skills/raw/main/releases/context-builder.skill)
+
+---
+
+### `/kabeuchi` — 壁打ち相手
+
+答えや解決策を先回りして提示するのではなく、**傾聴・反射・開かれた問い**を通じて、ユーザー自身が考え抜けるように伴走するスキルです。
+
+- 「発散」「整理」「行動化」など局面に応じてモードを切り替え
+- ユーザーの許可を得たときだけ「反証（devil's advocate）」を行い、思考の穴を突く
+- 迎合・誘導質問・早すぎる助言を避け、対話の終わりはユーザー自身の言葉でまとめさせる
+- 自動起動はせず、`/kabeuchi` の明示的な入力または「壁打ち相手になって」等の依頼でのみ起動
+
+**使い方:** `/kabeuchi` と入力、または「壁打ち相手になって」と依頼して起動
+
+[ダウンロード (kabeuchi.skill)](https://github.com/toiee-kameda/libehub-skills/raw/main/releases/kabeuchi.skill)
+
+---
+
+### `/eli5` — 5歳児にもわかる解説
+
+要望されたテーマを、**大きな画像と少ない言葉を使ったHTML形式**で、まったく知識がない人にもわかるように解説するスキルです。
+
+- 専門用語を避け、身近な例えで仕組みを説明
+- 図解を中心にした視覚的な出力
+- 「〇〇の仕組みをすごく簡単に図解して」のような依頼でも起動
+
+**使い方:** `/eli5 "テーマ"` と入力して起動
+
+[ダウンロード (eli5.skill)](https://github.com/toiee-kameda/libehub-skills/raw/main/releases/eli5.skill)
 
 ---
 
