@@ -34,7 +34,22 @@
       "skills": [
         "./skills/jp-check",
         "./skills/context-builder",
-        "./skills/copywriting-grill"
+        "./skills/copywriting-grill",
+        "./skills/kabeuchi",
+        "./skills/eli5"
+      ]
+    },
+    {
+      "name": "substack-tools",
+      "description": "Substackの記事作成を支援するスキル集。",
+      "author": {
+        "name": "LibeHub"
+      },
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/substack-post",
+        "./skills/substack-quick-fix"
       ]
     }
   ]
