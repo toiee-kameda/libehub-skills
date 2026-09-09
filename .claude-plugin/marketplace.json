@@ -5,16 +5,19 @@
     "email": "kame@toiee.jp"
   },
   "metadata": {
-    "description": "リベハブ（Liberal Education Hub）が公開する Claude スキル集のマーケットプレイス",
+    "description": "リベハブ（Libe Hub）が公開する Claude スキル集のマーケットプレイス",
     "version": "1.0.0"
   },
   "plugins": [
     {
-      "name": "ai-fluency",
+      "name": "libehub-ai-fluency",
       "description": "AIフルーエンシー（Anthropic 4D Framework）を高めるためのスキル集。自己評価チェック・会話コーチング・活用ヒント提案を提供",
       "author": {
         "name": "LibeHub"
       },
+      "license": "MIT",
+      "category": "education",
+      "keywords": ["ai-fluency", "self-assessment", "coaching", "claude-tips"],
       "source": "./skills",
       "strict": false,
       "skills": [
@@ -24,11 +27,14 @@
       ]
     },
     {
-      "name": "work-tools",
+      "name": "libehub-work-tools",
       "description": "日々の仕事の文章作成を支援するスキル集。日本語文章の校正とコンテキストドキュメント作成インタビューを提供",
       "author": {
         "name": "LibeHub"
       },
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": ["japanese", "writing", "proofreading", "interview", "coaching", "copywriting"],
       "source": "./skills",
       "strict": false,
       "skills": [
@@ -40,11 +46,14 @@
       ]
     },
     {
-      "name": "substack-tools",
+      "name": "libehub-substack-tools",
       "description": "Substackの記事作成を支援するスキル集。",
       "author": {
         "name": "LibeHub"
       },
+      "license": "MIT",
+      "category": "publishing",
+      "keywords": ["substack", "newsletter", "markdown", "editing"],
       "source": "./skills",
       "strict": false,
       "skills": [

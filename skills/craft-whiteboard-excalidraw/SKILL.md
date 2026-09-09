@@ -10,7 +10,7 @@ license: MIT
 metadata:
   author: toieelab Kameda
   version: 1.0.0
-  tags: [education, ai, coaching, ai-fluency, learning-by-doing]
+  tags: [craft, excalidraw, whiteboard, diagram, compatibility]
 ---
 
 # Craft ホワイトボード × Excalidraw 互換ガイド

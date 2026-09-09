@@ -5,7 +5,7 @@ license: MIT
 metadata:
   author: toieelab Kameda
   version: 1.0.0
-  tags: [education, ai, coaching, ai-fluency, learning-by-doing]
+  tags: [claude, tips, hints, productivity, ai-fluency]
 ---
 
 # 概要

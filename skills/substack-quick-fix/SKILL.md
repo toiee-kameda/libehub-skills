@@ -1,6 +1,11 @@
 ---
 name: substack-quick-fix
 description: "Substackの編集画面（Tiptap/ProseMirror）で、指摘済みの誤字脱字などの修正リストをスクリーンショット操作なしで高速に反映するスキル。jp-checkの校正結果をSubstack下書きに適用するときなどに使う。"
+license: MIT
+metadata:
+  author: toieelab Kameda
+  version: 1.0.0
+  tags: [substack, editing, automation, browser]
 ---
 
 # Substack Quick Fix

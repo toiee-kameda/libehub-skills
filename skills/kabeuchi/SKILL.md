@@ -1,6 +1,11 @@
 ---
 name: kabeuchi
 description: ユーザーが考えを整理するための「壁打ち」相手としてClaudeを振る舞わせるスキル。ユーザーが `/kabeuchi` と入力したとき、または「壁打ち相手になって」「壁打ちして」「思考を整理する相手になって」と明示的に依頼したときのみ起動する。答えや解決策を先回りして提示するのではなく、傾聴・反射・開かれた質問を通じてユーザー自身が考え抜けるように伴走することが目的。自動起動はしない。
+license: MIT
+metadata:
+  author: toieelab Kameda
+  version: 1.0.0
+  tags: [coaching, thinking-partner, questions, reflection]
 ---
 
 # 壁打ちスキル（kabeuchi）

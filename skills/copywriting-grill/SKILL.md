@@ -1,6 +1,11 @@
 ---
 name: copywriting-grill
 description: セールスレターを書き始める前に、素材（読者・約束・抵抗・証拠・価格や保証などの確定事項）を一問ずつ執拗に聞き出すスキル。「セールスレターについて質問攻めして」「レターを書く前にヒアリングして」「素材を聞き出して」「grillして」、または具体性の乏しいブリーフのままセールスレター執筆を依頼されたときに使う。コピーライティングの「構想メモ」を、書く前に埋めるための対話手順。このスキル自体はレター本文を書かない。
+license: MIT
+metadata:
+  author: toieelab Kameda
+  version: 1.0.0
+  tags: [copywriting, sales-letter, interview, marketing]
 ---
 
 # セールスレター・グリル
