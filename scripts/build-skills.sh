@@ -11,6 +11,12 @@ RELEASES_DIR="$REPO_ROOT/releases"
 
 mkdir -p "$RELEASES_DIR"
 
+echo "Validating plugin..."
+if ! (cd "$REPO_ROOT" && claude plugin validate .); then
+  echo "Validation failed. Aborting build." >&2
+  exit 1
+fi
+
 echo "Building skills..."
 
 for skill_path in "$SKILLS_DIR"/*/; do
