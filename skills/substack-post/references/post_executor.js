@@ -1,6 +1,9 @@
 // ─── ユーティリティ ───────────────────────────────────────────
-// ※ TITLE / SUBTITLE / SECTION / SEO_TITLE / SEO_DESC / URL_SLUG / BODY_MD
+// ※ TITLE / SUBTITLE / SECTION / SEO_TITLE / SEO_DESC / URL_SLUG / BODY_MD / BODY_PASTE_MODE
 //    は呼び出し元の vars.js で宣言済み
+//    BODY_PASTE_MODE: 'auto'（自動貼り付け）または 'manual'（本文貼り付けをスキップし、
+//    ユーザー自身が手動で貼り付ける。本文が長くJavaScript実行の時間・トークンを
+//    抑えたい場合に選択される）
 //
 // 言語設定に依存しないセレクタ方針:
 //   - data-testid / name / role / class トークン（ハッシュ抜き）など、
@@ -118,17 +121,23 @@ if (SECTION) {
 await sleep(300);
 
 // STEP 4: 本文ペースト
-const editor = document.querySelector('[data-testid="editor"]');
-if (editor) {
-  editor.focus();
-  const dt = new DataTransfer();
-  dt.setData('text/html',  md2html(BODY_MD));
-  dt.setData('text/plain', BODY_MD);
-  editor.dispatchEvent(new ClipboardEvent('paste', {
-    bubbles: true, cancelable: true, clipboardData: dt
-  }));
-  R.body = true;
-} else { R.body = false; }
+// BODY_PASTE_MODE === 'manual' の場合は、本文が長くJavaScript実行の時間・トークンを
+// 消費するのを避けるため、ユーザー自身が貼り付ける前提であえてスキップする。
+if (BODY_PASTE_MODE === 'manual') {
+  R.body = 'skipped';
+} else {
+  const editor = document.querySelector('[data-testid="editor"]');
+  if (editor) {
+    editor.focus();
+    const dt = new DataTransfer();
+    dt.setData('text/html',  md2html(BODY_MD));
+    dt.setData('text/plain', BODY_MD);
+    editor.dispatchEvent(new ClipboardEvent('paste', {
+      bubbles: true, cancelable: true, clipboardData: dt
+    }));
+    R.body = true;
+  } else { R.body = false; }
+}
 await sleep(300);
 
 // STEP 5: 設定モーダルを開く
