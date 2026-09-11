@@ -8,6 +8,14 @@
 bash scripts/build-skills.sh   # skills/ 以下を releases/*.skill にパッケージング
 ```
 
+## 初回セットアップ
+
+clone後に一度だけ実行し、Git hooks を有効化する（`skills/` 変更時に `releases/` の再ビルド忘れを自動防止）：
+
+```bash
+git config core.hooksPath .githooks
+```
+
 ## ディレクトリ構成
 
 ```
