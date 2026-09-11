@@ -28,8 +28,13 @@ for skill_path in "$SKILLS_DIR"/*/; do
   # 既存の .skill を削除してから作り直す（zip の追記で古いファイルが残るのを防ぐ）
   rm -f "$output"
 
+  # zip はファイルのmtimeを内部に保持するため、内容が同じでも実行のたびに
+  # バイナリが変わってしまう。固定日時にtouchし、再現性のあるビルドにする。
+  find "$skill_path" -exec touch -t 202001010000 {} +
+
   # skill フォルダの中身を zip に固める（フォルダ名なしでルートに展開されるように）
-  (cd "$skill_path" && zip -r --quiet "$output" .)
+  # -X: UID/GID等の余分なファイル属性を除外し、環境差による差分を防ぐ
+  (cd "$skill_path" && find . -type f | sort | zip -X --quiet "$output" -@)
 done
 
 echo "Done. $(ls "$RELEASES_DIR"/*.skill 2>/dev/null | wc -l | tr -d ' ') skill(s) written to releases/"
