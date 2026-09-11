@@ -1,0 +1,11 @@
+#!/bin/bash
+# skills/ に変更がある場合、releases/ のビルドを自動更新してからコミットする
+set -e
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+
+if git diff --cached --name-only | grep -q '^skills/'; then
+  echo "skills/ に変更を検出。releases/ を再ビルドします..."
+  bash "$REPO_ROOT/scripts/build-skills.sh"
+  git add "$REPO_ROOT/releases"
+fi
