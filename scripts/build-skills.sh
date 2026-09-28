@@ -32,9 +32,13 @@ for skill_path in "$SKILLS_DIR"/*/; do
   # バイナリが変わってしまう。固定日時にtouchし、再現性のあるビルドにする。
   find "$skill_path" -exec touch -t 202001010000 {} +
 
+  # パーミッションも zip に保持されるため、644（実行ビットは維持）に揃える
+  find "$skill_path" -type f -exec chmod a+r,go-w {} +
+
   # skill フォルダの中身を zip に固める（フォルダ名なしでルートに展開されるように）
   # -X: UID/GID等の余分なファイル属性を除外し、環境差による差分を防ぐ
-  (cd "$skill_path" && find . -type f | sort | zip -X --quiet "$output" -@)
+  # .DS_Store などの隠しファイルは含めない
+  (cd "$skill_path" && find . -type f ! -name '.*' | sort | zip -X --quiet "$output" -@)
 done
 
 echo "Done. $(ls "$RELEASES_DIR"/*.skill 2>/dev/null | wc -l | tr -d ' ') skill(s) written to releases/"
