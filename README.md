@@ -42,9 +42,9 @@ claude.ai や Claude Desktop App で作業をします。
 
 | プラグイン | 収録スキル |
 | --- | --- |
-| `ai-fluency` | `ai-fluency-check` / `coach-me` / `hint-me` |
-| `work-tools` | `jp-check` / `context-builder` / `copywriting-grill` / `kabeuchi` / `eli5` |
-| `substack-tools` | `substack-post` / `substack-quick-fix` |
+| `libehub-ai-fluency` | `ai-fluency-check` / `coach-me` / `hint-me` |
+| `libehub-work-tools` | `jp-check` / `context-builder` / `copywriting-grill` / `kabeuchi` / `eli5` |
+| `libehub-substack-tools` | `substack-post` / `substack-quick-fix` |
 
 上記3プラグインに含まれない `craft-whiteboard-excalidraw` は、下記の「個別スキルとしてインストール」の方法を利用してください。
 
