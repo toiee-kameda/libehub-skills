@@ -4,7 +4,7 @@ Unsplash から画像を検索し、Web ページ用に最適化した URL を�
 
 ## 画像の取得方法を決める
 
-1. **Unsplash コネクタ（MCP）を使う。** ツール名は `search_photos` / `download_asset` など。API キーの用意やスクリプトの実行は不要で、コネクタがキーを持っている（プロジェクト側に独自のスクリプトや API キーが用意されていれば、そちらが優先）
+1. **Unsplash を検索でき、ダウンロードを記録できるコネクタがあれば、それを使う**（ツール名は `search_photos` / `download_asset` など）。API キーの用意やスクリプトの実行は不要で、コネクタがキーを持っている（プロジェクト側に独自のスクリプトや API キーが用意されていれば、そちらが優先）
 2. コネクタが使えない場合は末尾の「コネクタが使えないとき」へ
 
 **どちらの経路でも、ステップ 2〜4（情報の取り出し・URL の最適化・ダウンロードの記録）とクレジット表記は共通**。取得方法だけが変わる。
@@ -13,7 +13,7 @@ Unsplash から画像を検索し、Web ページ用に最適化した URL を�
 
 ## ステップ 1: 画像を検索する
 
-`search_photos` を呼ぶ。
+画像を検索するツール（`search_photos` など）を呼ぶ。
 
 - `query`: **短く絞ったキーワード 1 つ**。キーワードを並べても結果は良くならない
 - 複数の異なる画像が必要なときは、**概念ごとに別々に呼ぶ**（「カフェの内装」と「コーヒーを淹れる手元」は別の検索）
@@ -86,9 +86,10 @@ Unsplash のガイドラインは「ユーザーが画像を選んでブログ�
 
 ### 埋め込みの注意
 
-**写真を敷く帯には、必ず写真の下にブランドカラーの濃い `background-color` を置く。**
+**写真を敷く帯は、写真の下にブランドカラーの濃い `background-color` を置く**（理由は SKILL.md「画像」）。
 
 ```html
+<!-- ページ下部の背景画像セクションの例 -->
 <section class="relative bg-primary-dark">
   <img src="https://images.unsplash.com/photo-xxx?...&w=1920&q=80&fm=webp&fit=crop"
        alt="" loading="lazy" decoding="async"
@@ -97,7 +98,7 @@ Unsplash のガイドラインは「ユーザーが画像を選んでブログ�
 </section>
 ```
 
-写真が表示されない環境（チャットの Artifact プレビューなど）でも、背景色があれば白抜き文字が読める。背景色がないと文字が消える。
+**ヒーローなどファーストビューに入る帯では、`loading="lazy"` ではなく `loading="eager" fetchpriority="high" decoding="async"` にする。**
 
 `bg-primary-dark` は `@theme` に `--color-primary-dark` を定義してはじめて使える。Tailwind v4 は `--color-primary` だけから `bg-primary-900` のような濃淡を自動生成しないので、**存在しないクラス名を書くと背景色が付かず、この対策が無効になる**。
 
