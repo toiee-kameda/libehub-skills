@@ -60,6 +60,21 @@
         "./substack-post",
         "./substack-quick-fix"
       ]
+    },
+    {
+      "name": "libehub-web-tools",
+      "description": "ワンページ完結の Web ページ（LP・サービス紹介・ポートフォリオ・イベント告知など）を 1 枚の HTML で作成・編集するスキル集。",
+      "author": {
+        "name": "LibeHub"
+      },
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": ["web", "html", "landing-page", "tailwind", "design"],
+      "source": "./skills",
+      "strict": false,
+      "skills": [
+        "./one-page-site-builder"
+      ]
     }
   ]
 }
