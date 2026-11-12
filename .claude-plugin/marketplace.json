@@ -75,7 +75,13 @@
       "strict": false,
       "skills": [
         "./one-page-site-builder"
-      ]
+      ],
+      "mcpServers": {
+        "unsplash": {
+          "type": "http",
+          "url": "https://mcp.unsplash.com/mcp"
+        }
+      }
     }
   ]
 }

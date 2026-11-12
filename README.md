@@ -158,6 +158,8 @@ Substackの編集画面（Tiptap/ProseMirror）で、指摘済みの誤字脱字
 
 **前提条件:** 画像を入れる場合は Unsplash コネクタを接続しておく（未接続でも写真なしで作成し、その旨を伝えます）
 
+**コネクタ:** `web-tools` プラグインとして追加すると、画像検索用に Unsplash コネクタが一緒に提案されます（未接続でも動作し、その場合は写真を使わない構成になります）。
+
 [ダウンロード (one-page-site-builder.skill)](https://github.com/toiee-kameda/libehub-skills/raw/main/releases/one-page-site-builder.skill)
 
 ---
