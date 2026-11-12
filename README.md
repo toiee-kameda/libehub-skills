@@ -45,8 +45,9 @@ claude.ai や Claude Desktop App で作業をします。
 | `ai-fluency` | `ai-fluency-check` / `coach-me` / `hint-me` |
 | `work-tools` | `jp-check` / `context-builder` / `copywriting-grill` / `kabeuchi` / `eli5` |
 | `substack-tools` | `substack-post` / `substack-quick-fix` |
+| `web-tools` | `one-page-site-builder` |
 
-上記3プラグインに含まれない `craft-whiteboard-excalidraw` は、下記の「個別スキルとしてインストール」の方法を利用してください。
+上記4プラグインに含まれない `craft-whiteboard-excalidraw` は、下記の「個別スキルとしてインストール」の方法を利用してください。
 
 ---
 
@@ -141,6 +142,23 @@ Substackの編集画面（Tiptap/ProseMirror）で、指摘済みの誤字脱字
 **前提条件:** Claude in Chrome 拡張で、対象のSubstack編集画面タブを操作できる状態にしておく
 
 [ダウンロード (substack-quick-fix.skill)](https://github.com/toiee-kameda/libehub-skills/raw/main/releases/substack-quick-fix.skill)
+
+---
+
+### `one-page-site-builder` — ワンページサイトの作成
+
+ランディングページ・サービス紹介・ポートフォリオ・イベント告知などの**ワンページ完結の Web ページを 1 枚の HTML で作成・編集**するスキルです。
+
+- 作る前に「対象読者・ゴール・印象」をおすすめ案付きで 1 回だけ確認
+- Tailwind CSS v4・Lucide・Google Fonts の CDN 構成（バージョン固定）、固定ナビの仕様、セクション設計、AI が作りがちな見た目の回避
+- 画像は Unsplash から取得（`references/images.md`）。SNS ロゴは同梱の SVG を使う（`references/brand-icons.md`）
+- 保存先とプレビュー手順はプロジェクトの CLAUDE.md に委ねるため、Claude Code でもチャットでも同じスキルが使える
+
+**使い方:** 「LP を作って」「ホームページを作って」「ページを直して」などと依頼すると起動
+
+**前提条件:** 画像を入れる場合は Unsplash コネクタを接続しておく（未接続でも写真なしで作成し、その旨を伝えます）
+
+[ダウンロード (one-page-site-builder.skill)](https://github.com/toiee-kameda/libehub-skills/raw/main/releases/one-page-site-builder.skill)
 
 ---
 
