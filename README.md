@@ -42,7 +42,7 @@ claude.ai や Claude Desktop App で作業をします。
 
 | プラグイン | 収録スキル |
 | --- | --- |
-| `ai-fluency` | `ai-fluency-check` / `coach-me` / `hint-me` |
+| `ai-fluency` | `ai-fluency-check` / `coach-me` / `hint-me` / `ump` |
 | `work-tools` | `jp-check` / `context-builder` / `copywriting-grill` / `kabeuchi` / `eli5` |
 | `substack-tools` | `substack-post` / `substack-quick-fix` |
 | `web-tools` | `one-page-site-builder` |
@@ -174,6 +174,22 @@ Substackの編集画面（Tiptap/ProseMirror）で、指摘済みの誤字脱字
 **使い方:** 会話の途中や開始時に `/hint-me` と入力して起動
 
 [ダウンロード (hint-me.skill)](https://github.com/toiee-kameda/libehub-skills/raw/main/releases/hint-me.skill)
+
+---
+
+### `/ump` — プロンプトのアップグレード
+
+ざっくりした依頼を、**選択肢つきの質問で具体化し、そのまま使えるプロンプトに仕上げる**スキルです。
+
+- 足りない情報を Claude が勝手に補わず、質問で本人の意図を引き出す（元の依頼の作業にはまだ着手しない）
+- 「いい感じ」「わかりやすく」のような曖昧な言葉を、具体的な選択肢にして聞き返す
+- 最大4問・各3〜4個の選択肢で、初心者でも選ぶだけで答えられる
+- 完成したプロンプトはコードブロックで提示。そのまま実行・修正・コピーのいずれかを選べる
+- 次回に活きる短いアドバイス（効いた要素とその理由）を添える
+
+**使い方:** 依頼の文章に添えて `/ump` と入力して起動（例: 「いい感じのWebページを作って /ump」）
+
+[ダウンロード (ump.skill)](https://github.com/toiee-kameda/libehub-skills/raw/main/releases/ump.skill)
 
 ---
 

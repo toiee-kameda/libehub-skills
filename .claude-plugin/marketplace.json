@@ -11,19 +11,20 @@
   "plugins": [
     {
       "name": "libehub-ai-fluency",
-      "description": "AIフルーエンシー（Anthropic 4D Framework）を高めるためのスキル集。自己評価チェック・会話コーチング・活用ヒント提案を提供",
+      "description": "AIフルーエンシー（Anthropic 4D Framework）を高めるためのスキル集。自己評価チェック・会話コーチング・活用ヒント提案・プロンプト改善を提供",
       "author": {
         "name": "LibeHub"
       },
       "license": "MIT",
       "category": "education",
-      "keywords": ["ai-fluency", "self-assessment", "coaching", "claude-tips"],
+      "keywords": ["ai-fluency", "self-assessment", "coaching", "claude-tips", "prompting"],
       "source": "./skills",
       "strict": false,
       "skills": [
         "./ai-fluency-check",
         "./coach-me",
-        "./hint-me"
+        "./hint-me",
+        "./ump"
       ]
     },
     {
